@@ -180,6 +180,43 @@ body {
   width: 100%;
 }
 
+.post .conteudo {
+  position: relative;
+}
+
+.post .conteudo .animacao{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  
+}
+
+.escondido{
+  display: none;
+}
+
+.animacao {
+  animation: pulse 0.3s step-end;
+  margin: 0 auto;
+  display: table;
+  margin-top: 50px;
+  animation-direction: alternate;
+  animation-name: pulse;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.2);
+    
+  }
+  100% {
+    transform: scale(1.0);
+    
+  }
+}
+
 .post .fundo .acoes {
   display: flex;
   justify-content: space-between;

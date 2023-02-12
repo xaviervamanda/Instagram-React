@@ -16,6 +16,8 @@ export default function Post (props){
     const [corIconeCurtida, setCorIconeCurtida] = useState(iconeBranco);
     const [iconeCurtida, setIconeCurtida] = useState("heart-outline");
 
+    const [animacaoImg, setAnimacaoImg] = useState("escondido")
+
     function curtirPost (){
         if (iconeCurtida === "heart-outline"){
             setIconeCurtida("heart");
@@ -32,7 +34,10 @@ export default function Post (props){
         if (iconeCurtida === "heart-outline"){
             setIconeCurtida("heart");
             setCorIconeCurtida(iconeVermelho);
-            setNumCurtidas(numeroCurtidas+0.001)
+            setNumCurtidas(numeroCurtidas+0.001);
+            setTimeout ((() => setAnimacaoImg("escondido")), 500);
+            setAnimacaoImg("animacao");
+            
         }   
     }
 
@@ -59,7 +64,8 @@ export default function Post (props){
                 </div>
 
                 <div className="conteudo">
-                <img data-test="post-image" onDoubleClick={curtirPostPelaImagem} src={props.fotoPost} alt={props.altPost}/>
+                    <img data-test="post-image" onDoubleClick={curtirPostPelaImagem} src={props.fotoPost} alt={props.altPost}/>
+                    <img className={animacaoImg} src="assets/img/coracao-brancoo.png" />
                 </div>
 
                 <div className="fundo">
